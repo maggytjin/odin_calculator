@@ -24,59 +24,60 @@ function operate(operator, numOne, numTwo) {
 
 var display = document.querySelector(".display");
 var displayValue = [];
+function numberClicked(num) {
+    displayValue.push(num);
+    console.log(displayValue);
+    display.textContent += `${num}`;
+};
 
 var one = document.querySelector(".one");
 one.addEventListener("click", function () {
-    displayValue.push(1);
-    display.textContent += 1;
+    numberClicked(1);
 });
 var two = document.querySelector(".two");
 two.addEventListener("click", function () {
-    displayValue.push(2);
-    display.textContent += 2;
+    numberClicked(2);
 });
 var three = document.querySelector(".three");
 three.addEventListener("click", function () {
-    displayValue.push(3);
-    display.textContent += 3;
+    numberClicked(3);
 });
 var four = document.querySelector(".four");
 four.addEventListener("click", function () {
-    displayValue.push(4);
-    display.textContent += 4;
+    numberClicked(4);
 });
 var five = document.querySelector(".five");
 five.addEventListener("click", function () {
-    displayValue.push(5);
-    display.textContent += 5;
+    numberClicked(5);
 });
 var six = document.querySelector(".six");
 six.addEventListener("click", function () {
-    displayValue.push(6);
-    display.textContent += 6;
+    numberClicked(6);
 });
 var seven = document.querySelector(".seven");
 seven.addEventListener("click", function () {
-    displayValue.push(7);
-    display.textContent += 7;
+    numberClicked(7);
 });
 var eight = document.querySelector(".eight");
 eight.addEventListener("click", function () {
-    displayValue.push(8);
-    display.textContent += 8;
+    numberClicked(8);
 });
 var nine = document.querySelector(".nine");
 nine.addEventListener("click", function () {
-    displayValue.push(9);
-    display.textContent += 9;
+    numberClicked(9);
 });
 var zero = document.querySelector(".zero");
 zero.addEventListener("click", function () {
-    displayValue.push(0);
-    display.textContent += 0;
+    numberClicked(0);
 });
 
 var plus = document.querySelector(".plus");
 plus.addEventListener("click", function () {
-    
-})
+    numOne = displayValue.join("");
+});
+
+
+var equals = document.querySelector(".equal");
+equals.addEventListener("click", function operate(operator, numOne, numTwo) {
+    return operator(numOne, numTwo);
+});
