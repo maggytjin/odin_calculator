@@ -4,22 +4,26 @@ var numTwo;
 
 function add(a, b) {
     numOne = parseFloat(a) + parseFloat(b);
-    display.textContent = `${numOne}`;
+    let shortNum = numOne.toFixed(13);
+    display.textContent = `${shortNum}`;
 };
 
 function subtract(a, b) {
     numOne = parseFloat(a) - parseFloat(b);
-    display.textContent = `${numOne}`;
+    let shortNum = numOne.toFixed(13);
+    display.textContent = `${shortNum}`;
 };
 
 function multiply(a, b) {
     numOne = parseFloat(a) * parseFloat(b);
-    display.textContent = `${numOne}`;
+    let shortNum = numOne.toFixed(13);
+    display.textContent = `${shortNum}`;
 };
 
 function divide(a, b) {
     numOne = parseFloat(a) / parseFloat(b);
-    display.textContent = `${numOne}`;
+    let shortNum = numOne.toFixed(13);
+    display.textContent = `${shortNum}`;
 };
 
 function operate(operator, numOne, numTwo) {
@@ -28,12 +32,10 @@ function operate(operator, numOne, numTwo) {
 
 var display = document.querySelector(".display");
 var displayValue = [];
-function clear() {
-    display.textContent = "";
-};
+
 function numberClicked(num) {
     if (displayValue.length == 0) {
-        clear();
+        display.textContent = "";
     };
     displayValue.push(num);
     console.log(displayValue);
@@ -82,8 +84,10 @@ zero.addEventListener("click", function () {
 });
 
 function getOne() {
-    numOne = displayValue.join("");
-    displayValue = [];
+    if (numOne == null) {
+        numOne = displayValue.join("");
+        displayValue = [];
+    }
     console.log(`Number One:  ${numOne}`);
 };
 function getTwo() {
@@ -102,7 +106,17 @@ var minus = document.querySelector(".minus");
 minus.addEventListener("click", function() {
     getOne();
     operator = subtract;
-})
+});
+var multiplier = document.querySelector(".multiplier");
+multiplier.addEventListener("click", function() {
+    getOne();
+    operator = multiply;
+});
+var divider = document.querySelector(".divider");
+divider.addEventListener("click", function() {
+    getOne();
+    operator = divide;
+});
 
 var equals = document.querySelector(".equal");
 equals.addEventListener("click", function () {
@@ -110,6 +124,12 @@ equals.addEventListener("click", function () {
     console.log(`Number One:  ${numOne}`);
     console.log(`Number Two:  ${numTwo}`);
     operate(operator, numOne, numTwo);
-    numOne;
+});
+
+var startOver = document.querySelector(".clear");
+startOver.addEventListener("click", function () {
+    numOne = null;
+    numTwo = null;
+    display.textContent = "";
     console.log(numOne);
 });

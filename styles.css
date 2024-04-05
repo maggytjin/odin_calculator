@@ -29,7 +29,7 @@ body {
     background-color: rgb(237, 245, 201);
     height: 30px;
     margin-bottom: 20px;
-    padding: 7px;
+    padding: 7px 7px 7px 9px;
     font-size: 25px;
     font-weight: 500;
 }
