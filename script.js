@@ -19,7 +19,7 @@ function multiply(a, b) {
 
 function divide(a, b) {
     numOne = parseFloat(a) / parseFloat(b);
-    let shortNum = numOne.toFixed(2);
+    let shortNum = numOne.toFixed(3);
     display.textContent = `${shortNum}`;
 };
 
@@ -133,7 +133,14 @@ divider.addEventListener("click", function() {
 
 var equals = document.querySelector(".equal");
 equals.addEventListener("click", function () {
+    if (displayValue.length == 0) {
+        display.textContent = "Enter a number";
+    } 
     getTwo();
+    if (numTwo == 0) {
+        display.textContent = "Infinity & beyond!";
+        return;
+    } 
     console.log(`Number One:  ${numOne}`);
     console.log(`Number Two:  ${numTwo}`);
     operate(operator, numOne, numTwo);
@@ -146,5 +153,3 @@ startOver.addEventListener("click", function () {
     display.textContent = "";
     console.log(numOne);
 });
-
-// Add backspace, decimal, figure out rounding and decimal placing
