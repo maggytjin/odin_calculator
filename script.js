@@ -4,25 +4,22 @@ var numTwo;
 
 function add(a, b) {
     numOne = parseFloat(a) + parseFloat(b);
-    let shortNum = numOne.toFixed(13);
-    display.textContent = `${shortNum}`;
+    display.textContent = `${numOne}`;
 };
 
 function subtract(a, b) {
     numOne = parseFloat(a) - parseFloat(b);
-    let shortNum = numOne.toFixed(13);
-    display.textContent = `${shortNum}`;
+    display.textContent = `${numOne}`;
 };
 
 function multiply(a, b) {
     numOne = parseFloat(a) * parseFloat(b);
-    let shortNum = numOne.toFixed(13);
-    display.textContent = `${shortNum}`;
+    display.textContent = `${numOne}`;
 };
 
 function divide(a, b) {
     numOne = parseFloat(a) / parseFloat(b);
-    let shortNum = numOne.toFixed(13);
+    let shortNum = numOne.toFixed(2);
     display.textContent = `${shortNum}`;
 };
 
@@ -100,21 +97,37 @@ function getTwo() {
 var plus = document.querySelector(".plus");
 plus.addEventListener("click", function () {
     getOne();
+    if (displayValue.length !== 0) {
+        getTwo();
+        operate(operator, numOne, numTwo);
+    }
     operator = add;
 });
 var minus = document.querySelector(".minus");
 minus.addEventListener("click", function() {
     getOne();
+    if (displayValue.length !== 0) {
+        getTwo();
+        operate(operator, numOne, numTwo);
+    }
     operator = subtract;
 });
 var multiplier = document.querySelector(".multiplier");
 multiplier.addEventListener("click", function() {
     getOne();
+    if (displayValue.length !== 0) {
+        getTwo();
+        operate(operator, numOne, numTwo);
+    }
     operator = multiply;
 });
 var divider = document.querySelector(".divider");
 divider.addEventListener("click", function() {
     getOne();
+    if (displayValue.length !== 0) {
+        getTwo();
+        operate(operator, numOne, numTwo);
+    }
     operator = divide;
 });
 
@@ -133,3 +146,5 @@ startOver.addEventListener("click", function () {
     display.textContent = "";
     console.log(numOne);
 });
+
+// Add backspace, decimal, figure out rounding and decimal placing
