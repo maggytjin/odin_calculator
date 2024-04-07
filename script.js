@@ -28,15 +28,14 @@ function operate(operator, numOne, numTwo) {
 };
 
 var display = document.querySelector(".display");
-var displayValue = [];
+var displayValue;
+let value = [];
 
 function numberClicked(num) {
-    if (displayValue.length == 0) {
-        display.textContent = "";
-    };
-    displayValue.push(num);
+    value.push(num);
+    displayValue = value.join("");
     console.log(displayValue);
-    display.textContent += `${num}`;
+    display.textContent = `${displayValue}`;
 };
 
 var one = document.querySelector(".one");
@@ -82,22 +81,22 @@ zero.addEventListener("click", function () {
 
 function getOne() {
     if (numOne == null) {
-        numOne = displayValue.join("");
-        displayValue = [];
+        numOne = displayValue;
+        value = [];
     }
     console.log(`Number One:  ${numOne}`);
 };
 function getTwo() {
     if (numOne.length != 0) {
-        numTwo = displayValue.join("");
-        displayValue = [];
+        numTwo = displayValue;
+        value = [];
     }
 };
 
 var plus = document.querySelector(".plus");
 plus.addEventListener("click", function () {
     getOne();
-    if (displayValue.length !== 0) {
+    if (value.length !== 0) {
         getTwo();
         operate(operator, numOne, numTwo);
     }
@@ -106,7 +105,7 @@ plus.addEventListener("click", function () {
 var minus = document.querySelector(".minus");
 minus.addEventListener("click", function() {
     getOne();
-    if (displayValue.length !== 0) {
+    if (value.length !== 0) {
         getTwo();
         operate(operator, numOne, numTwo);
     }
@@ -115,7 +114,7 @@ minus.addEventListener("click", function() {
 var multiplier = document.querySelector(".multiplier");
 multiplier.addEventListener("click", function() {
     getOne();
-    if (displayValue.length !== 0) {
+    if (value.length !== 0) {
         getTwo();
         operate(operator, numOne, numTwo);
     }
@@ -124,7 +123,7 @@ multiplier.addEventListener("click", function() {
 var divider = document.querySelector(".divider");
 divider.addEventListener("click", function() {
     getOne();
-    if (displayValue.length !== 0) {
+    if (value.length !== 0) {
         getTwo();
         operate(operator, numOne, numTwo);
     }
@@ -133,12 +132,12 @@ divider.addEventListener("click", function() {
 
 var equals = document.querySelector(".equal");
 equals.addEventListener("click", function () {
-    if (displayValue.length == 0) {
+    if (value.length == 0) {
         display.textContent = "Enter a number";
     } 
     getTwo();
     if (numTwo == 0) {
-        display.textContent = "Infinity & beyond!";
+        display.textContent = "Google it!";
         return;
     } 
     console.log(`Number One:  ${numOne}`);
@@ -146,10 +145,20 @@ equals.addEventListener("click", function () {
     operate(operator, numOne, numTwo);
 });
 
+var backspace = document.querySelector(".backspace");
+backspace.addEventListener("click", function () {
+    var removeNum = displayValue
+                        .split("")
+    removeNum.pop();
+    displayValue = removeNum.join("");
+    display.textContent = `${displayValue}`;
+});
+
 var startOver = document.querySelector(".clear");
 startOver.addEventListener("click", function () {
     numOne = null;
     numTwo = null;
-    display.textContent = "";
+    displayValue = [];
+    display.textContent = `${displayValue}`;
     console.log(numOne);
 });

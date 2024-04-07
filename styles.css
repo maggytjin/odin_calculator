@@ -17,8 +17,8 @@ body {
     display: flex;
     flex-direction: column;
     border: 2px solid black;
-    width: 230px;
-    height: 300px;
+    width: 350px;
+    height: 550px;
     padding: 20px;
     margin-top: 30px;
     background-color: rgb(135, 183, 149);
@@ -26,18 +26,20 @@ body {
 .display {
     display: flex;
     justify-content: flex-end;
+    align-items: flex-end;
     background-color: rgb(237, 245, 201);
-    height: 30px;
+    height: 80px;
     margin-bottom: 20px;
-    padding: 7px 7px 7px 9px;
-    font-size: 25px;
-    font-weight: 500;
+    padding: 7px;
+    font-size: 50px;
+    font-weight: 600;
 }
 .button-container {
     display: flex;
     flex-direction: row;
+    justify-content: center;;
     flex-wrap: wrap;
-    gap: 10px 10px;
+    gap: 7px 7px;
     font-weight: 700;
     font-size: x-large;
 }
@@ -45,19 +47,28 @@ body {
     background-color: black;
     color: white;
 }
-.clear {
-    background-color: #e08a72;
-}
 .button {
     display: flex;
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 80px;
     justify-content: center;
     align-items: center;
     border-radius: 10%;
     cursor: default;
 }
-
+.clear {
+    display: flex; 
+    background-color: #e08a72;
+    width: 165px;
+    border-radius: 5%;
+}
+.backspace {
+    display: flex;
+    background-color: rgb(128, 0, 0);
+    width: 165px;
+    color: white;
+    border-radius: 5%;
+}
 .number {
     background-color: #dbdbdb;
 }
