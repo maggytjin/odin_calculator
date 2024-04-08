@@ -38,12 +38,11 @@ function numberClicked(num) {
         decimalCount--;
         alert("Numbers can't have multiple decimals! Try again.");
         return;
-    } else if (displayValue.length == 12) {
+    } else if (displayValue.length == 8) {
         return;
     }
     value.push(num);
     displayValue = value.join("");
-    console.log(displayValue.length);
     display.textContent = `${displayValue}`;
 };
 
@@ -103,7 +102,6 @@ function getOne() {
         numOne = displayValue;
         value = [];
     }
-    console.log(`Number One:  ${numOne}`);
 };
 function getTwo() {
     if (numOne.length != 0) {
@@ -159,8 +157,6 @@ equals.addEventListener("click", function () {
         display.textContent = "Google it!";
         return;
     } 
-    console.log(`Number One:  ${numOne}`);
-    console.log(`Number Two:  ${numTwo}`);
     operate(operator, numOne, numTwo);
 });
 
@@ -178,7 +174,7 @@ startOver.addEventListener("click", function () {
     numOne = null;
     numTwo = null;
     value = [];
-    displayValue;
+    displayValue = [];
     decimalCount = 0;
     display.textContent = `${value}`;
 });

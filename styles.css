@@ -1,3 +1,9 @@
+.orbitron-font {
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
 body {
     box-sizing: border-box;
     margin: 0;
@@ -33,6 +39,7 @@ body {
     padding: 7px;
     font-size: 50px;
     font-weight: 600;
+    font-family: "Orbitron";
 }
 .button-container {
     display: flex;
