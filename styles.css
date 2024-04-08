@@ -21,7 +21,7 @@ body {
     height: 550px;
     padding: 20px;
     margin-top: 30px;
-    background-color: rgb(135, 183, 149);
+    background-color: #001524;
 }
 .display {
     display: flex;
@@ -44,7 +44,7 @@ body {
     font-size: x-large;
 }
 .operator {
-    background-color: black;
+    background-color: #FF7D00;
     color: white;
 }
 .button {
@@ -58,17 +58,33 @@ body {
 }
 .clear {
     display: flex; 
-    background-color: #e08a72;
+    background-color: #FFECD1;
+    color: black;
     width: 165px;
     border-radius: 5%;
 }
+.clear:active {
+    background-color: #fabc65;
+}
 .backspace {
     display: flex;
-    background-color: rgb(128, 0, 0);
+    background-color: #78290F;
     width: 165px;
     color: white;
     border-radius: 5%;
 }
+.backspace:active {
+    background-color: #c55b37;
+}
 .number {
-    background-color: #dbdbdb;
+    background-color: #15616D;
+    color: white;
+}
+.number:active {
+    background-color: #2ac1d8;
+    color: white;
+}
+.operator:active {
+    background-color: #ffb978;
+    color: white;
 }

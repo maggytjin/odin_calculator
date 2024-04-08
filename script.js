@@ -28,13 +28,22 @@ function operate(operator, numOne, numTwo) {
 };
 
 var display = document.querySelector(".display");
-var displayValue;
+var buttons = document.querySelectorAll(".button");
+var displayValue = [];
 let value = [];
+let decimalCount = 0;
 
 function numberClicked(num) {
+    if (decimalCount == 2) {
+        decimalCount--;
+        alert("Numbers can't have multiple decimals! Try again.");
+        return;
+    } else if (displayValue.length == 12) {
+        return;
+    }
     value.push(num);
     displayValue = value.join("");
-    console.log(displayValue);
+    console.log(displayValue.length);
     display.textContent = `${displayValue}`;
 };
 
@@ -42,6 +51,7 @@ var one = document.querySelector(".one");
 one.addEventListener("click", function () {
     numberClicked(1);
 });
+
 var two = document.querySelector(".two");
 two.addEventListener("click", function () {
     numberClicked(2);
@@ -78,6 +88,15 @@ var zero = document.querySelector(".zero");
 zero.addEventListener("click", function () {
     numberClicked(0);
 });
+var decimal = document.querySelector(".decimal");
+decimal.addEventListener("click", function () {
+    decimalCount++;
+    if (value.length == 0) {
+        value = [0];
+    }
+    numberClicked(".");
+
+})
 
 function getOne() {
     if (numOne == null) {
@@ -158,7 +177,8 @@ var startOver = document.querySelector(".clear");
 startOver.addEventListener("click", function () {
     numOne = null;
     numTwo = null;
-    displayValue = [];
-    display.textContent = `${displayValue}`;
-    console.log(numOne);
+    value = [];
+    displayValue;
+    decimalCount = 0;
+    display.textContent = `${value}`;
 });
